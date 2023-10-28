@@ -68,7 +68,8 @@ export async function updateInvoice(formData: FormData) {
 const DeleteInvoice = InvoiceSchema.pick({ id: true });
 
 export async function deleteInvoice(formData: FormData) {
-  throw new Error('Failed to Delete Invoice');
+  // Randomly throw an error to test error handling
+  if (Math.random() > 0.5) throw new Error("Failed to Delete Invoice");
   const { id } = DeleteInvoice.parse({
     id: formData.get("id"),
   });
